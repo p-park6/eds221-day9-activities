@@ -37,12 +37,23 @@ mack_creek_lengths <- mack_creek_vertebrates %>%
   clean_names() %>% 
   select(year:sampledate) %>% 
   filter(section == "CC") %>% 
-  mutate(across(where(is.character, tolower))) %>% 
+  mutate(across(where(is.character), tolower)) %>% 
   drop_na(species) %>% 
   group_by(species) %>% 
   summarize(mean_length_cm = mean(length1, na.rm = TRUE),
             sd_length_cm = sd(length1, na.rm = TRUE)) %>% 
   ungroup()
+
+```
+
+
+```{r}
+library(tidyverse)
+
+starwars_lower <- starwars %>% 
+   mutate(across(where(is.character), tolower))
+
+starwars_lower
 ```
 
 ### reprex 2
