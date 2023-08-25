@@ -66,10 +66,19 @@ mack_creek_vertebrates %>%
   clean_names() %>% 
   filter(species == "ONCL") %>% 
   ggplot(aes(x = length1, y = weight)) +
-         geom_point(aes(shape = 12), color = "purple") +
+         geom_point(shape = 12, color = "purple") +
          theme_minimal() +
          labs(x = "Cutthroat trout length (cm)",
               y = "Weight (g)")
+
+
+#fixed code:
+library(tidyverse)
+
+starwars_graph <- ggplot(data = starwars, aes(x = height, y = mass)) +
+         geom_point(shape = 12, color = "purple")
+
+starwars_graph
 ```
 
 ## End
